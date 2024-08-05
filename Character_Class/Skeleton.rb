@@ -319,7 +319,7 @@ class Skeleton < Monster
     @speed = 2
 
     #3.1. Attack
-    @attack = 10
+    @attack = 60 #balancing attack damage for skeleton
 
     #4. This will be convenient for random move function
     @moveCounter = 0
