@@ -366,7 +366,7 @@ class Player
           if CCHECK.intersect(@attackBoxRight.x,@attackBoxRight.y,@attackBoxRight.width,@attackBoxRight.height,
             monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
             monster.beAttacked(@attack)
-            if monster.is_a?(Skeleton) && monster.exist
+            if monster.exist
               monster.canmove = false
               monster.image.play(animation: :hurt) do
                 monster.canmove = true
@@ -384,7 +384,7 @@ class Player
           if CCHECK.intersect(@attackBoxLeft.x,@attackBoxLeft.y,@attackBoxLeft.width,@attackBoxLeft.height,
             monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
             monster.beAttacked(@attack)
-            if monster.is_a?(Skeleton) && monster.exist
+            if monster.exist
               monster.canmove = false
               monster.image.play(animation: :hurt) do
                 monster.canmove = true
@@ -406,7 +406,7 @@ class Player
           if CCHECK.intersect(@attackBoxSpecial.x,@attackBoxSpecial.y,@attackBoxSpecial.width,@attackBoxSpecial.height,
             monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
             monster.beAttacked(@attack*2.5)
-            if monster.is_a?(Skeleton) && monster.exist
+            if monster.exist
               monster.canmove = false
               monster.image.play(animation: :hurt) do
                 monster.canmove = true
