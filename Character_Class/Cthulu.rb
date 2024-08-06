@@ -6,311 +6,300 @@ require_relative '../CommonParameter'
 require_relative 'Monster'
 include CCHECK
 
-class Skeleton < Monster
+class Cthulu < Monster
   def initialize(wordlX, worldY, width, height, player)
     super(wordlX, worldY, width, height)
 
     #1. Image and Animation
     @image = Sprite.new(
-      'Image/Skeleton_full.png', #1248 * 320 :: 96*64
+      'Image/Cthulu_full.png', #2880 * 784 :: 192*112 
       x: @worldX - player.worldX + player.x,
       y: @worldY - player.worldY + player.y,
-      width: width*2.25, height: height*1.5,
+      width: width*4, height: height*4*112/192, #
       # clip_width: width_Of('Image/cropskeleton.png') / 10,
       # clip_height: height_Of('Image/cropskeleton.png'),
       animations: {
         walk:
         [
            {
-             x: 0, y: 128,
-             width: 96, height: 64,
+             x: 192*0, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
 
            {
-             x: 96, y: 128,
-             width: 96, height: 64,
+             x: 192*1, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
 
            {
-             x: 96*1, y: 128,
-             width: 96, height: 64,
+             x: 192*2, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
 
            {
-             x: 96*2, y: 128,
-             width: 96, height: 64,
+             x: 192*3, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
 
            {
-             x: 96*3, y: 128,
-             width: 96, height: 64,
+             x: 192*4, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
 
            {
-             x: 96*4, y: 128,
-             width: 96, height: 64,
+             x: 192*5, y: 112*2,
+             width: 192, height: 112,
              time: 100
            },
-
-           {
-             x: 96*5, y: 128,
-             width: 96, height: 64,
-             time: 100
-           },
-
-           {
-             x: 96*6, y: 128,
-             width: 96, height: 64,
-             time: 100
-           },
-
-           {
-             x: 96*7, y: 128,
-             width: 96, height: 64,
-             time: 100
-           },
-
-           {
-             x: 96*8, y: 128,
-             width: 96, height: 64,
-             time: 100
-           }
          ],
 
         attackFirst:[
-            {
-             x: 0, y: 0,
-             width: 96, height: 64,
+           {
+             x: 192*0, y: 112*3,
+             width: 192, height: 112,
              time: 50
            },
 
            {
-             x: 96, y: 0,
-             width: 96, height: 64,
+             x: 192*1, y: 112*3,
+             width: 192, height: 112,
              time: 50
            },
 
            {
-             x: 96*1, y: 0,
-             width: 96, height: 64,
-             time: 50
-           },
-
-           {
-             x: 96*2, y: 0,
-             width: 96, height: 64,
-             time: 50
-           },
-
-           {
-             x: 96*3, y: 0,
-             width: 96, height: 64,
-             time: 50
-           },
-
-           {
-             x: 96*4, y: 0,
-             width: 96, height: 64,
+             x: 192*2, y: 112*3,
+             width: 192, height: 112,
              time: 50
            }
         ],
         attackSecond:[
-           {
-             x: 96*5, y: 0,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+            x: 192*3, y: 112*3,
+            width: 192, height: 112,
+            time: 50
+          },
 
-           {
-             x: 96*6, y: 0,
-             width: 96, height: 64,
+          {
+             x: 192*4, y: 112*3,
+             width: 192, height: 112,
              time: 50
-           },
+          },
 
-           {
-             x: 96*7, y: 0,
-             width: 96, height: 64,
+          {
+             x: 192*5, y: 112*3,
+             width: 192, height: 112,
              time: 50
-           },
+          },
 
-           {
-             x: 96*8, y: 0,
-             width: 96, height: 64,
+          {
+             x: 192*6, y: 112*3,
+             width: 192, height: 112,
              time: 50
            }
+
         ],
 
         idle: [
           {
-             x: 0, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+             x: 192*0, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*1, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*1, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*2, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*2, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*3, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*3, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*4, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*4, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*5, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*5, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*6, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
 
-           {
-             x: 96*6, y: 64,
-             width: 96, height: 64,
-             time: 100
-           },
+          {
+             x: 192*7, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*8, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*9, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*10, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*11, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*12, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*13, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          },
+
+          {
+             x: 192*14, y: 112*0,
+             width: 192, height: 112,
+             time: 50
+          }
          ],
 
         hurt: [
           {
-             x: 0, y: 64*3,
-             width: 96, height: 64,
-             time: 50
-           },
+             x: 192*0, y: 112*5,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96, y: 64*3,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*1, y: 112*5,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*1, y: 64*3,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*2, y: 112*5,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*2, y: 64*3,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*3, y: 112*5,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*3, y: 64*3,
-             width: 96, height: 64,
-             time: 50
-           }
+          {
+             x: 192*4, y: 112*5,
+             width: 192, height: 112,
+             time: 100
+          },
          ],
 
         death: [
           {
-             x: 0, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+             x: 192*0, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*1, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*1, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*2, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*2, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*3, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*3, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*4, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*4, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*5, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*5, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*6, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*6, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*7, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*7, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*8, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*8, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
+          {
+             x: 192*9, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
 
-           {
-             x: 96*9, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
-
-           {
-             x: 96*10, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           },
-
-           {
-             x: 96*11, y: 64*4,
-             width: 96, height: 64,
-             time: 50
-           }
+          {
+             x: 192*10, y: 112*6,
+             width: 192, height: 112,
+             time: 100
+          },
          ]
        }
     )
     @image.play(animation: :idle, loop: true)
-    @deltax = -30
-    @deltay = -20
+    @deltax = -30 -40
+    @deltay = -20 -20
 
     #2. Health Bar
     @healthBar = HealthBar.new(100, 100, -999, -999, 48)
@@ -319,7 +308,7 @@ class Skeleton < Monster
     @speed = 2
 
     #3.1. Attack
-    @attack = 60 #balancing attack damage for skeleton
+    @attack = 20 #balancing attack damage for skeleton
 
     #4. This will be convenient for random move function
     @moveCounter = 0

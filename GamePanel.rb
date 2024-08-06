@@ -12,6 +12,8 @@ require_relative 'Character_Class/Warrior'
 require_relative 'Item_Class/Chest'
 require_relative 'Item_Class/Loot_item'
 require_relative 'Character_Class/Minotaur'
+require_relative 'Character_Class/Cthulu'
+require_relative 'Character_Class/Boss'
 
 
 include CCHECK
@@ -27,18 +29,21 @@ player = Player.new(1*CP::TILE_SIZE, 1*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SI
 
 #------------------------- 1.3. Monsters Section --------------------------------
 monsters = [
-            Minotaur.new(24*CP::TILE_SIZE, 27*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Boss.new(24*CP::TILE_SIZE, 27*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            #Minotaur.new(24*CP::TILE_SIZE, 27*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Bat.new(4*CP::TILE_SIZE, 4*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Cthulu.new(7*CP::TILE_SIZE, 7*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             Skeleton.new(30*CP::TILE_SIZE, 6*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Skeleton.new(39*CP::TILE_SIZE, 12*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Skeleton.new(1*CP::TILE_SIZE, 37*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Skeleton.new(11*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Skeleton.new(36*CP::TILE_SIZE, 28*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(16*CP::TILE_SIZE, 0*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(1*CP::TILE_SIZE, 13*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(1*CP::TILE_SIZE, 33*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(3*CP::TILE_SIZE, 31*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(35*CP::TILE_SIZE, 20*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(32*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player)
+            # Skeleton.new(39*CP::TILE_SIZE, 12*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Skeleton.new(1*CP::TILE_SIZE, 37*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Skeleton.new(11*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Skeleton.new(36*CP::TILE_SIZE, 28*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(16*CP::TILE_SIZE, 0*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(1*CP::TILE_SIZE, 13*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(1*CP::TILE_SIZE, 33*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(3*CP::TILE_SIZE, 31*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(35*CP::TILE_SIZE, 20*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            # Bat.new(32*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player)
            ]
 
 #------------------------- 1.4. NPCs Section --------------------------------
@@ -147,7 +152,7 @@ update do
 
     #3. Update Texts
     text.text = "Hero Coordinate: #{player.worldX}   #{player.worldY} "
-    text1.text = "Minotaur Coordinate: #{monsters[0].worldX}   #{monsters[0].worldY}"
+    text1.text = "Boss Coordinate: #{monsters[0].worldX}   #{monsters[0].worldY}"
     currentNumberOfMonsters = 0
     for i in 0..(monsters.length - 1)
       if(monsters[i].exist == true)
