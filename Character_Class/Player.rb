@@ -213,6 +213,7 @@ class Player
 
     #5. Attack damage
     @attack = 25
+    @canAttack = true # for tracking if player is attacking or not
 
     #6. Health Bar
     @healthBar = HealthBar.new(
@@ -358,42 +359,47 @@ class Player
 #-------------------------------- Attack and Special Skills -----------------------------------------
 
   def attackInBox(monsters)
-
-    case @facing
-    when 'right'
-      @image.play(animation: :attackSideFirst) do
-        monsters.each do |monster|
-          if CCHECK.intersect(@attackBoxRight.x,@attackBoxRight.y,@attackBoxRight.width,@attackBoxRight.height,
-            monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
-            monster.beAttacked(@attack)
-            if monster.exist
-              monster.canmove = false
-              monster.image.play(animation: :hurt) do
-                monster.canmove = true
+    if @canAttack
+      case @facing
+      when 'right'
+        @canAttack = false
+        @image.play(animation: :attackSideFirst) do
+          monsters.each do |monster|
+            if CCHECK.intersect(@attackBoxRight.x,@attackBoxRight.y,@attackBoxRight.width,@attackBoxRight.height,
+              monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
+              monster.beAttacked(@attack)
+              if monster.exist
+                monster.canmove = false
+                monster.image.play(animation: :hurt) do
+                  monster.canmove = true
+                end
               end
             end
           end
+          @image.play(animation: :attackSideSecond) do
+            @canAttack = true
+            self.stop
+          end
         end
-        @image.play(animation: :attackSideSecond) do
-          self.stop
-        end
-      end
-    when 'left'
-      @image.play(animation: :attackSideFirst, flip: :horizontal) do
-        monsters.each do |monster|
-          if CCHECK.intersect(@attackBoxLeft.x,@attackBoxLeft.y,@attackBoxLeft.width,@attackBoxLeft.height,
-            monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
-            monster.beAttacked(@attack)
-            if monster.exist
-              monster.canmove = false
-              monster.image.play(animation: :hurt) do
-                monster.canmove = true
+      when 'left'
+        @canAttack = false
+        @image.play(animation: :attackSideFirst, flip: :horizontal) do
+          monsters.each do |monster|
+            if CCHECK.intersect(@attackBoxLeft.x,@attackBoxLeft.y,@attackBoxLeft.width,@attackBoxLeft.height,
+              monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
+              monster.beAttacked(@attack)
+              if monster.exist
+                monster.canmove = false
+                monster.image.play(animation: :hurt) do
+                  monster.canmove = true
+                end
               end
             end
           end
-        end
-        @image.play(animation: :attackSideSecond, flip: :horizontal) do
-          self.stop()
+          @image.play(animation: :attackSideSecond, flip: :horizontal) do
+            @canAttack = true
+            self.stop()
+          end
         end
       end
     end
@@ -427,6 +433,7 @@ class Player
 #-------------------------------- Animation Section -----------------------------------------
 
   def runAnimation()
+    @canAttack = true
     case @facing
     when 'right'
       if @leftDirection
@@ -448,6 +455,7 @@ class Player
 #-------------------------------- Stop Moving -----------------------------------------
 
   def stop()
+    @canAttack = true
     case @facing
     when 'right'
       @image.play(animation: :static, loop: true)
