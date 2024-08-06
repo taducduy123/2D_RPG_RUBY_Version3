@@ -31,17 +31,19 @@ player = Player.new(1*CP::TILE_SIZE, 1*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SI
 monsters = [
             Boss.new(24*CP::TILE_SIZE, 27*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             #Minotaur.new(24*CP::TILE_SIZE, 27*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Bat.new(4*CP::TILE_SIZE, 4*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            Cthulu.new(7*CP::TILE_SIZE, 7*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Cthulu.new(1*CP::TILE_SIZE, 38*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Cthulu.new(11*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Cthulu.new(1*CP::TILE_SIZE, 33*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Cthulu.new(37*CP::TILE_SIZE, 20*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             Skeleton.new(30*CP::TILE_SIZE, 6*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Skeleton.new(39*CP::TILE_SIZE, 12*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Skeleton.new(1*CP::TILE_SIZE, 37*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Skeleton.new(39*CP::TILE_SIZE, 15*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Skeleton.new(38*CP::TILE_SIZE, 20*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             # Skeleton.new(11*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             # Skeleton.new(36*CP::TILE_SIZE, 28*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Bat.new(16*CP::TILE_SIZE, 0*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Bat.new(1*CP::TILE_SIZE, 13*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Bat.new(1*CP::TILE_SIZE, 33*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
-            # Bat.new(3*CP::TILE_SIZE, 31*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Bat.new(16*CP::TILE_SIZE, 0*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Bat.new(38*CP::TILE_SIZE, 1*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Bat.new(3*CP::TILE_SIZE, 31*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
+            Bat.new(34*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             # Bat.new(35*CP::TILE_SIZE, 20*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player),
             # Bat.new(32*CP::TILE_SIZE, 36*CP::TILE_SIZE, CP::TILE_SIZE, CP::TILE_SIZE, player)
            ]
@@ -78,7 +80,7 @@ text = Text.new(
 
 text1 = Text.new(
   '',
-  x: 465, y: 0,
+  x: 485, y: 0,
   #font: 'vera.ttf',
   style: 'bold',
   size: 20,
@@ -89,7 +91,7 @@ text1 = Text.new(
 
 text2 = Text.new(
   '',
-  x: 465, y: 30,
+  x: 485, y: 30,
   #font: 'vera.ttf',
   style: 'bold',
   size: 20,
