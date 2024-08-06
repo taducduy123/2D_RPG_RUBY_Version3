@@ -200,31 +200,31 @@ class Cthulu < Monster
           {
              x: 192*0, y: 112*5,
              width: 192, height: 112,
-             time: 100
+             time: 10
           },
 
           {
              x: 192*1, y: 112*5,
              width: 192, height: 112,
-             time: 100
+             time: 10
           },
 
           {
              x: 192*2, y: 112*5,
              width: 192, height: 112,
-             time: 100
+             time: 10
           },
 
           {
              x: 192*3, y: 112*5,
              width: 192, height: 112,
-             time: 100
+             time: 10
           },
 
           {
              x: 192*4, y: 112*5,
              width: 192, height: 112,
-             time: 100
+             time: 10
           },
          ],
 
