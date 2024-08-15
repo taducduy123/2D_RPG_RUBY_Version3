@@ -278,7 +278,13 @@ class Bat < Monster
     @speed = 2
 
     #3.1. Attack
-    @attack = 20 #balancing attack damage for skeleton
+    @attack = 20 #balancing attack damage for Bat
+    @attackBox = Rectangle.new(
+      x: 18, y: 16,
+      width: 95, height: 62,
+      opacity:0.5,
+      color: 'green'
+    )
 
     #4. This will be convenient for random move function
     @moveCounter = 0
