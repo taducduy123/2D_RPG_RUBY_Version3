@@ -75,12 +75,7 @@ class Monster
       opacity: 0.5
     )
 
-    @attackBox = Rectangle.new(
-      x: 18, y: 16,
-      width: 62, height: 62,
-      opacity:0.5,
-      color: 'green'
-    )
+    @attackBox
 
     #8. State of Collision
     @collisionOn = false
@@ -107,7 +102,7 @@ class Monster
     hitBox_screenX = screenX + @solidArea.x 
     hitBox_screenY = screenY + @solidArea.y
 
-    attackBox_screenX = screenX + @solidArea.x - 15
+    attackBox_screenX = screenX + 24 - @attackBox.width/2
     attackBox_screenY = screenY + @solidArea.y - 15
 
 
