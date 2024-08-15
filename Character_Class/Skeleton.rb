@@ -320,6 +320,12 @@ class Skeleton < Monster
 
     #3.1. Attack
     @attack = 60 #balancing attack damage for skeleton
+    @attackBox = Rectangle.new(
+      x: 18, y: 16,
+      width: 105, height: 62,
+      opacity:0.5,
+      color: 'green'
+    )
 
     #4. This will be convenient for random move function
     @moveCounter = 0
