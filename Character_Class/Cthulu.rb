@@ -369,6 +369,7 @@ def updateMonster(player, map, items, npcs, monsters)
     @canmove = false
     @existFlag = false
     self.DrawMonster(player)
+    self.DrawHealthBar(player)
   end
 end
 
