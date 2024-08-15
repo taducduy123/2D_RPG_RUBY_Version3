@@ -518,6 +518,7 @@ class Boss < Monster
       @canmove = false
       @existFlag = false
       self.DrawMonster(player)
+      self.DrawHealthBar(player)
     end
   end
 
