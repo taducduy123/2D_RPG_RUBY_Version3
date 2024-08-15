@@ -98,92 +98,92 @@ class Boss < Monster
           {
             x: 288*0, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*1, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*2, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*3, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*4, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*5, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*6, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*7, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*8, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*9, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           }
         ],
         attackSecond:[
           {
             x: 288*10, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*11, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*12, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*13, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           },
 
           {
             x: 288*14, y: 160*2,
             width: 288, height: 160,
-            time: 100
+            time: 80
           }
         ],
 
@@ -404,7 +404,13 @@ class Boss < Monster
     @speed = 1
 
     #3.1. Attack
-    @attack = 25
+    @attack = 150
+    @attackBox = Rectangle.new(
+      x: 18, y: 16,
+      width: 185, height: 62,
+      opacity:0.5,
+      color: 'green'
+    )
 
     #4. Tool for finding the shortest path
     @pFinder = PathFinder.new()
