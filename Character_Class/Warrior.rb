@@ -5,6 +5,7 @@ require_relative '../ImageHandler'
 require_relative '../Dialogue/ChatBubble'
 require_relative 'NPC'
 require_relative '../sharedData'
+require_relative '../Item_Class/Loot_item'
 include CCHECK
 
 class Warrior < NPC
@@ -20,8 +21,16 @@ class Warrior < NPC
       animations: {idle: 1..4},
     )
     @chatprogress = 0
+    @itemgiven = false
+    @npcItem = BoostDamage.new
+    @npcStore = []
+    @npcStore << @npcItem
+
     @chatList = ["Hello there, Welcome to middle earth (Press X to continue)", "My name is NPCone, I am your guider (Press X)",
-    "You can start moving by pressing W, A, S, D (Press X)","Press I to access your inventory (X to continue)","(Press X to continue)"]
+    "You can start moving by pressing W, A, S, D (Press X)","Press I to access your inventory (X to continue)",
+    "Press j to normal attack(X to continue)","Press k to special attack(X to continue)",
+    "Press f to use items in your inventory (Press X to continue)",
+    "You have been given a boost damage potion (Press X to continue)"]
     @newchat = ChatBubble.new(0, Window.height - Window.height / 11,
     Window.width ,Window.height / 5, @chatList[@chatprogress])
     @newchat.hide
@@ -40,6 +49,11 @@ class Warrior < NPC
       if @talked == false
         @newchat.show
         SharedData.shared_chat_array << @newchat
+
+          if @chatprogress == @chatList.size - 1 && @itemgiven == false
+            @itemgiven = true
+            player.myInventory.add_to_inventory(@npcStore)
+          end
           if @chatprogress > @chatList.size - 1
             @talked = true
             @newchat.hide

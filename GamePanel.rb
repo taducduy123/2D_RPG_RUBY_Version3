@@ -172,7 +172,7 @@ update do
       end
     end
     # Restore the interaction state after processing all items
-    player.talktoNpc = -current_interacting_npc
+    player.talktoNpc = current_interacting_npc
     #5. Update Items in map and preserve player.interacting
     current_interacting_chest = -1
     for i in 0..(items.length - 1)

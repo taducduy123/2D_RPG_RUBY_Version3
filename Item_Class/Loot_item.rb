@@ -29,3 +29,16 @@ class RottedItem   # Reduce health
     return healthRegain
   end
 end
+
+class BoostDamage
+  attr_accessor :image_path, :visible, :description
+  def initialize()
+    @image_path = 'Image/damagepotion.png'
+    @description = "Boost damage when consumed"
+  end
+
+  def effect
+   damageBoost = 30
+   return damageBoost
+  end
+end

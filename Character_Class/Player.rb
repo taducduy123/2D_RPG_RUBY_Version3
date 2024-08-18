@@ -29,7 +29,8 @@ class Player
                 :talktoNpc,
                 :healthBar,
                 :magicBar,
-                :hitBox
+                :hitBox,
+                :attack
 
 
   def initialize(worldX, worldY, width, height)
@@ -267,7 +268,7 @@ class Player
 
     #12. State of interaction
     @interacting = -1
-    @talktoNpc
+    @talktoNpc = -1
 
     #13. Inventory
     @myInventory = Inventory.new()
@@ -468,9 +469,14 @@ class Player
 def useItem()
   puts "Access my_inventory at #{myInventory.cursor_y} #{myInventory.cursor_x}"
   if myInventory.my_inventory[myInventory.cursor_y][myInventory.cursor_x]
-    @healthBar.hp = @healthBar.hp + myInventory.my_inventory[myInventory.cursor_y][myInventory.cursor_x].effect
-    myInventory.removeItem(myInventory.cursor_y, myInventory.cursor_x)
-    @healthBar.update
+    if myInventory.my_inventory[myInventory.cursor_y][myInventory.cursor_x].description == "Boost damage when consumed"
+      @attack +=  myInventory.my_inventory[myInventory.cursor_y][myInventory.cursor_x].effect
+      myInventory.removeItem(myInventory.cursor_y, myInventory.cursor_x)
+    else
+      @healthBar.hp = @healthBar.hp + myInventory.my_inventory[myInventory.cursor_y][myInventory.cursor_x].effect
+      myInventory.removeItem(myInventory.cursor_y, myInventory.cursor_x)
+      @healthBar.update
+    end
   end
 end
 
