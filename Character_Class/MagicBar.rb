@@ -15,7 +15,7 @@ class MagicBar
       './Image/Mana.png',
       x: x, y: y,
       width: 15, height: 10,
-      z: 2
+      z: 22
     )
 
     #the maxMp bar
@@ -23,21 +23,21 @@ class MagicBar
       x: x, y: y,
       width: leng + 4, height: 12, #plus 4 to make the right and left border for the health bar (each is 2 pixel)
       color: 'black',
-      z: 0
+      z: 20
     )
     # the mp bar
     @rec2 = Rectangle.new(
       x: x + 2, y: y + 2,
       width: (@mp*1.00/@maxMp)*leng , height: 8,
       color: 'blue',
-      z: 1
+      z: 21
     )
 
     @rec3 = Rectangle.new(
       x: x + leng/2 + 1, y: y+1,
       width: 2, height: 11,
       color: 'white',
-      z:3,
+      z:23,
       opacity: 0.5
     )
   end
