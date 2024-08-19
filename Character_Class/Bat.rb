@@ -282,7 +282,7 @@ class Bat < Monster
     @attackBox = Rectangle.new(
       x: 18, y: 16,
       width: 95, height: 62,
-      opacity:0.5,
+      opacity:0,
       color: 'green'
     )
 
