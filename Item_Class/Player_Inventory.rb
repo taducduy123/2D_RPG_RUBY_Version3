@@ -37,7 +37,7 @@ class Inventory
           x: x * TILE_SIZE + Window.width / 3, y: y * TILE_SIZE + Window.height / 4,
           width: TILE_SIZE - 2, height: TILE_SIZE - 2,
           color: 'black',
-          z: 3
+          z: 30
         )
         @created_objects << rect
 
@@ -46,7 +46,7 @@ class Inventory
             @my_inventory[y][x].image_path,
             x: x * TILE_SIZE + Window.width / 3, y: y * TILE_SIZE + Window.height / 4,
             width: TILE_SIZE - 2, height: TILE_SIZE - 2,
-            z: 4
+            z: 31
           )
           @created_Items_Images[y][x] = img
         end
@@ -61,7 +61,7 @@ class Inventory
         'Image/cursor.png',
         x: @cursor_x * TILE_SIZE + Window.width / 3, y: @cursor_y * TILE_SIZE + Window.height / 4,
         width: TILE_SIZE - 2, height: TILE_SIZE - 2,
-        z: 5)
+        z: 32)
     end
   end
 
