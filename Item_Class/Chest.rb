@@ -66,6 +66,10 @@ class Chest
   def updateChest(player, chestId)
     WorldHandler::DrawObject(self, player)
       if CCHECK.checkEntity_Collide_SingleTarget(player,@interactRange) == true
+        if player.myInventory.visible
+          player.myInventory.hide
+          player.myInventory.visible = false
+        end
         @activemess.show
         player.interacting = chestId
       else

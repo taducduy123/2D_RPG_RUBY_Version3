@@ -50,6 +50,10 @@ class NPC < Sprite
   def checkCollision(player, map, npcId)
     CCHECK.checkTile(self, map)
     if CCHECK.checkEntity_Collide_SingleTarget(player, @interactRange) == true
+      if player.myInventory.visible
+        player.myInventory.hide
+        player.myInventory.visible = false
+      end
       player.talktoNpc = npcId
     else
       player.talktoNpc = -1
