@@ -15,7 +15,7 @@ class HealthBar
       './Image/Heart.png',
       x: x, y: y,
       width: 15, height: 10,
-      z: 2
+      z: 22
     )
 
     #the maxHp bar
@@ -23,14 +23,14 @@ class HealthBar
       x: x, y: y,
       width: leng + 4, height: 12, #plus 4 to make the right and left border for the health bar (each is 2 pixel)
       color: 'black',
-      z: 0
+      z: 20
     )
     # the hp bar
     @rec2 = Rectangle.new(
       x: x + 2, y: y + 2,
       width: (@hp*1.00/@maxHp)*leng , height: 8,
       color: 'red',
-      z: 1
+      z: 21
     )
   end
 
