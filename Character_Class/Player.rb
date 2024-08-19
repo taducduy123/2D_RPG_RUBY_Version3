@@ -257,7 +257,7 @@ class Player
       x: @x + @solidArea.x,
       y: @y + @solidArea.y,            # Position
       width: 32, height: 32,  # Size
-      opacity: 1
+      opacity: 0
     )
 
     #11. State of Collision
