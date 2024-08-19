@@ -369,12 +369,6 @@ class Player
             if CCHECK.intersect(@attackBoxRight.x,@attackBoxRight.y,@attackBoxRight.width,@attackBoxRight.height,
               monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
               monster.beAttacked(@attack)
-              if monster.exist
-                monster.canmove = false
-                monster.image.play(animation: :hurt) do
-                  monster.canmove = true
-                end
-              end
             end
           end
           @image.play(animation: :attackSideSecond) do
@@ -389,12 +383,6 @@ class Player
             if CCHECK.intersect(@attackBoxLeft.x,@attackBoxLeft.y,@attackBoxLeft.width,@attackBoxLeft.height,
               monster.hitBox.x,monster.hitBox.y,monster.hitBox.width,monster.hitBox.height)
               monster.beAttacked(@attack)
-              if monster.exist
-                monster.canmove = false
-                monster.image.play(animation: :hurt) do
-                  monster.canmove = true
-                end
-              end
             end
           end
           @image.play(animation: :attackSideSecond, flip: :horizontal) do
