@@ -72,7 +72,7 @@ class Monster
     @hitBox = Rectangle.new(
       x: 8 , y: 16,
       width: 32, height: 32,
-      opacity: 0.5
+      opacity: 0
     )
 
     @attackBox
